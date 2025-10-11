@@ -16,7 +16,7 @@ async function postToTwitter(text) {
   try {
     const tweet = await rwClient.v2.tweet(text);
     console.log("✅ Posted to Twitter:", tweet.data);
-    return tweet.data;
+    return tweet;
   } catch (err) {
     console.error("Twitter Error:", err.data || err.message);
     return {
@@ -51,7 +51,7 @@ async function postToInstagram(imageUrl, caption) {
     );
 
     console.log("✅ Posted to Instagram successfully!");
-    return publishRes.data;
+    return publishRes;
   } catch (err) {
     const instaResult = {
       error: true,
